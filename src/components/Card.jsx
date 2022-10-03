@@ -9,7 +9,7 @@ const Card = ({ api }) => {
 
   // creting function inside div
   return (
-    <a href={api.Link} target="_blank">
+    <a href={api.Link} target="__blank">
       <div className="border-2 border-pink-500 p-2 text-gray-600 rounded-md bg-pink-100 hover:bg-pink-300 cursor-pointer h-full">
         {renderDetail("Title", "API")}
         {renderDetail("Description", "Description")}
