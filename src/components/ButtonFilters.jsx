@@ -9,8 +9,8 @@ const ButtonFilters = ({fetchData:fetchApi}) => {
     const {fetchData, response:{categories} ,loading}=useAxios("categories")
 
     useEffect(()=>{
-      fetchData();
-    },[fetchData]);
+        fetchData(); 
+    },0);
 
     const clickButton=e=>{
       fetchApi({params:{category:e.target.value}})

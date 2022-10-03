@@ -9,8 +9,8 @@ function App() {
   const {fetchData, response ,loading}=useAxios("entries")
 
   useEffect(()=>{
-    fetchData({params:{category:'Animals'}});
-  },[fetchData])
+    fetchData({params:{category:'Animals'}}); 
+  },0);
 
 
   return (
