@@ -10,7 +10,7 @@ const ButtonFilters = ({fetchData:fetchApi}) => {
 
     useEffect(()=>{
       fetchData();
-    },[]);
+    },[fetchData]);
 
     const clickButton=e=>{
       fetchApi({params:{category:e.target.value}})
