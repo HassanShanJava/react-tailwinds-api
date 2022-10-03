@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
 // background radient and search bar
-const Jumbotron = () => {
+const Jumbotron = ({fetchData}) => {
+
+  const [value,setValue] =useState('')
+  const handleEnter=(e)=>{
+    if(e.key==='Enter'){
+      fetchData({params:{title:value}});
+      setValue('');
+    }
+  }
+
+  const handleSearch=()=>{
+    if(value.length){
+      fetchData({params:{title:value}});
+      setValue('');
+    }
+  }
+
   return (
     <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-center py-20 px-2 ">
       <h3 className="text-xl text-white font-semibold">Search APIs</h3>
@@ -9,9 +25,14 @@ const Jumbotron = () => {
         <input
           className="w-full text-gray-800 py-2 px-4 rounded-md focus:outline-none"
           placeholder="Search Input"
-          type="text"
+          type="search"
+          value={value}
+          onChange={e=>setValue(e.target.value)}
+          onKeyDown={handleEnter}
         />
-        <button className="bg-blue-500 w-20 h-12 text-white rounded-md flex items-center justify-center">
+        <button 
+          onClick={handleSearch}
+          className="bg-blue-500 w-20 h-12 text-white rounded-md flex items-center justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
