@@ -10,7 +10,8 @@ function App() {
 
   useEffect(()=>{
     fetchData({params:{category:'Animals'}}); 
-  },0);
+    // eslint-disable-next-line
+  },[]);
 
 
   return (
